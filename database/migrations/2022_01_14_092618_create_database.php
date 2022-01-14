@@ -32,7 +32,7 @@ class CreateDatabase extends Migration
             $table->id();
             $table->string('titre');
             $table->string('url');
-            $table->foreignId('evenement_id')->constrained()->nullable();
+            $table->foreignId('evenement_id')->nullable()->constrained();
             $table->timestamps();
         });
         Schema::create('contenus', function (Blueprint $table) {
