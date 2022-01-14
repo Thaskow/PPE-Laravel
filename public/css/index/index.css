@@ -1,0 +1,46 @@
+.presentation {
+    background:url('https://www.blois.fr/sites/default/files/media/images/blois-donsang-202001-efs-visuel_pouvoir.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items:flex-end;
+    font-size: 40px;
+    transition: font-size .5s ease;
+}
+.presentation div {
+    margin-bottom: 10px;
+    color: white;
+    -webkit-transition: font-size .5s ease;
+    -moz-transition: font-size .5s ease;
+    -o-transition: font-size .5s ease;
+    transition: font-size .5s ease;
+}
+.presentation div:hover {
+    font-size: 50px;
+}
+.donDeMoelle,.donDuSang {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.donDeMoelle {
+    background-color: #f6f6f6;
+}
+.donDeMoelle div,.donDuSang div{
+    margin: 20px;
+    max-width: 600px;
+}
+a {
+    text-decoration: none;
+    color:cornflowerblue;
+    font-weight: bold;
+}
+.titre {
+    font-weight: bold;
+    font-size: 25px;
+}
+img {
+    width: 90%;
+    height: auto;
+}
