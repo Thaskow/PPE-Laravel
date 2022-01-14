@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        for ($i=0; $i<=5; $i++)
+        {
         DB::table('promotions')->insert([
             'libelle' => Str::random(10),
         ]);
@@ -47,16 +49,6 @@ class DatabaseSeeder extends Seeder
             'isPrimoDonneur'=> (bool)rand(0,1),
             'isMoelle'=> (bool)rand(0,1),
         ]);
-        DB::table('user_evenement')->insert([
-            'isVenir' => (bool)rand(0,1),
-            'datePassage' => Carbon::now()->addDay(30),
-        ]);
-        DB::table('promotion_evenement')->insert([
-            'isVenir' => (bool)rand(0,1),
-            'datePassage' => Carbon::now()->addDay(30),
-            'pourcentage' => rand(0, 10) / 10,
-            'nbParticipant' => rand(),
-        ]);
-
+        }
     }
 }
