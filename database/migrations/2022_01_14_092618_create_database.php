@@ -39,7 +39,7 @@ class CreateDatabase extends Migration
             $table->id();
             $table->string('titre');
             $table->string('description');
-            $table->foreignId('image_id')->constrained();
+            $table->foreignId('image_id')->nullable()->constrained();
             $table->timestamps();
         });
         Schema::table('users', function (Blueprint $table) {
@@ -47,7 +47,7 @@ class CreateDatabase extends Migration
             $table->boolean('isAdmin');
             $table->boolean('isPrimoDonneur');
             $table->boolean('isMoelle');
-            $table->foreignId('promotion_id')->constrained();
+            $table->foreignId('promotion_id')->nullable()->constrained();
         });
         Schema::create('user_evenement', function (Blueprint $table) {
             $table->foreignId('user_id')->constrained();
@@ -64,7 +64,7 @@ class CreateDatabase extends Migration
             $table->integer('nbParticipant');
         });
     }
-    
+
     /**
      * Reverse the migrations.
      *
