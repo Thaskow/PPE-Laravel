@@ -30,11 +30,11 @@
 @section('content')
     <div id="selectContenu">
         <select id="selectedContenu" class="feedback-input" onchange="selectContenu(this.value)">
-            <option selected hidde disabled>Choissisez un contenu à modifié</option>
             @forelse ($contenus as $contenu)
+                <option selected hidde disabled>Choissisez un contenu à modifié</option>
                 <option value="{{$contenu->id}}">{{$contenu->designation}}</option>
             @empty
-                <option>Aucun contenu</option>
+                <option selected hidde disabled>Aucun contenu modifiable pour l'instant</option>
             @endforelse
         </select>
     </div>
