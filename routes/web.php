@@ -25,3 +25,7 @@ Route::post('admin/contenu',[AdminController::class,'contenuSelected'])->name("c
 Route::post('admin/contenu/edit',[AdminController::class,'contenuEdit'])->name("contenu.edit");
 Route::get("admin/photos",[AdminController::class, 'photoIndex'])->name("photo.index");
 
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
