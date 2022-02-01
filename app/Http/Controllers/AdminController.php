@@ -37,7 +37,6 @@ class AdminController extends Controller
         $images = Image::all();
         return view("administrateur.image",compact('images'));
     }
-<<<<<<< HEAD
     public function photoUpload(Request $request){
         $image = new Image();
         $image->titre = $request->titre;
@@ -45,9 +44,8 @@ class AdminController extends Controller
         $image->save();
         $request->photo->storeAs('public/photos', $request->titre.'.png');
         return redirect()->back();
-=======
+    }
     public function newtemplate() {
         return view("newtemplate");
->>>>>>> 91a8e81c0def8dd6827f2ed58b500be94c823eb9
     }
 }
