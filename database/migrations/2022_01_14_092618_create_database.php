@@ -43,10 +43,10 @@ class CreateDatabase extends Migration
             $table->timestamps();
         });
         Schema::table('users', function (Blueprint $table) {
-            $table->string('prenom');
-            $table->boolean('isAdmin');
-            $table->boolean('isPrimoDonneur');
-            $table->boolean('isMoelle');
+            $table->string('prenom')->nullable();
+            $table->boolean('isAdmin')->default(0);
+            $table->boolean('isPrimoDonneur')->nullable();
+            $table->boolean('isMoelle')->nullable();
             $table->foreignId('promotion_id')->nullable()->constrained();
         });
         Schema::create('user_evenement', function (Blueprint $table) {

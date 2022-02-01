@@ -9,6 +9,11 @@ use Session;
 
 class AdminController extends Controller
 {
+    public function __construct() 
+    { 
+        $this->middleware('auth'); 
+        $this->middleware('is_admin'); 
+    } 
     public function administrateur() {
         return view("administrateur.index");
     }
@@ -31,5 +36,13 @@ class AdminController extends Controller
     public function photoIndex(){
         $images = Image::all();
         return view("administrateur.image",compact('images'));
+    }
+    public function photoUpload(Request $request){
+        $image = new Image();
+        $image->titre = $request->titre;
+        $image->url= $request->titre.".png";
+        $image->save();
+        $request->photo->storeAs('public/photos', $request->titre.'.png');
+        return redirect()->back();
     }
 }
