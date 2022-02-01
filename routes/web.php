@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Controller;
 
 
 /*
@@ -18,6 +19,8 @@ use App\Http\Controllers\AdminController;
 Route::get('/', function () {
     return view('index');
 })->name("home");
+
+Route::get('/newtemplate',[AdminController::class,'newtemplate'])->name("newtemplate");
 
 Route::get('administrateur',[AdminController::class,'administrateur'])->name("administrateur");
 Route::get('admin/contenus',[AdminController::class,'contenuIndex'])->name("contenu.index");
