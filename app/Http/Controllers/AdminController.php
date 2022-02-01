@@ -32,4 +32,7 @@ class AdminController extends Controller
         $images = Image::all();
         return view("administrateur.image",compact('images'));
     }
+    public function newtemplate() {
+        return view("newtemplate");
+    }
 }
