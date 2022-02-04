@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Contenu;
 use App\Models\Image;
+use ImageI;
 use Session;
 
 class AdminController extends Controller
@@ -19,7 +20,8 @@ class AdminController extends Controller
     }
     public function contenuIndex(){
         $contenus = Contenu::all();
-        return view("administrateur.contenu",compact("contenus"));
+        $images = Image::all();
+        return view("administrateur.contenu",compact("contenus","images"));
     }
     public function contenuSelected(Request $request){
         $contenu = Contenu::find($request->id);
@@ -42,10 +44,23 @@ class AdminController extends Controller
         $image->titre = $request->titre;
         $image->url= $request->titre.".png";
         $image->save();
-        $request->photo->storeAs('public/photos', $request->titre.'.png');
+        $path = $request->titre.'.png';
+        $request->photo->storeAs('public/photos', $path);
+        $request->file('photo')->storeAs('public/thumbnail/', $path);
+        $mediumthumbnailpath = public_path('storage/thumbnail/'. $path);
+        $this->createThumbnail($mediumthumbnailpath, 300, 185);
         return redirect()->back();
     }
     public function newtemplate() {
         return view("newtemplate");
+    }
+
+    public function createThumbnail($path, $width, $height)
+    {
+      //  dd($path);
+    $img = ImageI::make($path)->resize($width, $height, function ($constraint) {
+        $constraint->aspectRatio();
+    });
+    $img->save($path);
     }
 }

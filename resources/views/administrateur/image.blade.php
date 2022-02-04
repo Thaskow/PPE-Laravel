@@ -1,5 +1,6 @@
 @extends('administrateur.template')
 @section('addons')
+<link rel="stylesheet" href="{{asset("css/administrateur/contenu.css")}}">
 <style>img {
     width: 500px;
     height: auto;
@@ -9,19 +10,83 @@
     Affichage des photos
 @endsection
 @section('content')
-   <div id="affichagePhotos">
-       @forelse ($images as $image)
-            <img src="{{url('storage/photos/'.$image->url)}}" alt="{{$image->titre}}">
-       @empty
-           Aucune photo publié pour l'instant
-       @endforelse
-   </div>
-   <div id="ajouterImage">
-       <form action="{{route('photo.upload')}}" method='POST' enctype="multipart/form-data">
-            @csrf
-            <input type="text" name="titre" placeholder="Nom de la photo">
-           <input type='file' name="photo">
-           <input type="submit" value='Publié'>
-       </form>
-   </div>
+   <!--====== PORTFOLIO PART START ======-->
+
+   <section id="portfolio" class="portfolio-area portfolio-four pb-100">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-10">
+                <div class="section-title text-center pb-10">
+                    <h3 class="title">Vos photos</h3>
+                    <p class="text">Ici sont affiché toutes les photos publiée sur le site internet.</p>
+                </div> <!-- section title -->
+            </div>
+        </div> <!-- row -->
+        <div class="row">
+            <div class="col-lg-12 col-md-12">
+                <div class="row no-gutters grid mt-50">
+                    @forelse ($images as $image)
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="single-portfolio">
+                                <div class="portfolio-image">
+                                    <img src="{{url('storage/thumbnail/'.$image->url)}}" alt="{{$image->titre}}">
+                                    <div class="portfolio-overlay d-flex align-items-center justify-content-center">
+                                        <div class="portfolio-content">
+                                            <div class="portfolio-icon">
+                                                <a class="image-popup" href="{{url('storage/photos/'.$image->url)}}"><i class="lni lni-zoom-in"></i></a>
+                                            </div>
+                                            <div class="portfolio-icon">
+                                                <a href="#"><i class="lni lni-link"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- single portfolio -->
+                        </div>
+                    @empty
+                        Aucune image
+                    @endforelse
+                </div> <!-- row -->
+            </div>
+        </div> <!-- row -->
+    </div> <!-- container -->
+</section>
+
+<!--====== PORTFOLIO PART ENDS ======-->
+<section id="contact">
+    <div class="container">
+        <div class="row" id="formEdit">
+            <div class="col-lg-12">
+                <div class="contact-wrapper form-style-two">
+                    <form  action="{{route('photo.upload')}}" method='POST' enctype="multipart/form-data">
+                        @csrf
+                        <input type="text" id='id' name="titre" hidden>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-input mt-25">
+                                    <label>Titre</label>
+                                    <div class="input-items default">
+                                        <input id="titre" name="titre" type="text" placeholder="Nom de la photo">
+                                        <i class="lni lni-user"></i>
+                                    </div>
+                                </div> <!-- form input -->
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-input mt-25">
+                                    <label>Image</label>
+                                    <input id="image" type='file' name="photo">
+                                </div> <!-- form input -->
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-input light-rounded-buttons mt-30">
+                                    <button type="submit" class="main-btn light-rounded-two">Ajouter</button>
+                                </div> <!-- form input -->
+                            </div>
+                        </div> <!-- row -->
+                    </form>
+                </div> <!-- contact wrapper form -->
+            </div>
+        </div> <!-- row -->
+    </div>
+</section>
 @endsection
