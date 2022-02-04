@@ -69,7 +69,7 @@
                                         <label>Titre</label>
                                         <div class="input-items default">
                                             <input id="titre" name="titre" type="text" placeholder="Titre">
-                                            <i class="lni lni-user"></i>
+                                            <i class="lni lni-pencil"></i>
                                         </div>
                                     </div> <!-- form input -->
                                 </div>

@@ -22,9 +22,9 @@ class CreateDatabase extends Migration
             $table->id();
             $table->string('titre');
             $table->string('description');
-            $table->dateTime('dateEvenement');
+            $table->date('dateEvenement');
             $table->string('lieuEvenement');
-            $table->dateTime('dateReunion');
+            $table->date('dateReunion');
             $table->string('lieuReunion');
             $table->timestamps();
         });

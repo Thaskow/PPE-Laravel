@@ -57,6 +57,48 @@
                     </div>
                 </div> <!-- pricing style one -->
             </div>
+
+
+            <div class="col-lg-4 col-md-7 col-sm-9">
+                <div class="pricing-style mt-30">
+                    <div class="pricing-icon text-center">
+                        <!--<img src="assets/images/pro.svg" alt="">-->
+                    </div>
+                    <div class="pricing-header text-center">
+                        <h5 class="sub-title">Statistique</h5>
+                    </div>
+                    <div class="pricing-list">
+                        <ul>
+                            <li><i class="lni lni-check-mark-circle"></i> Suivi des inscription</li>
+                            <li><i class="lni lni-check-mark-circle"></i> Affichage des statistique</li>
+                        </ul>
+                    </div>
+                    <div class="pricing-btn rounded-buttons text-center">
+                        <a class="main-btn rounded-one" href="{{route('event.stats')}}">Voir</a>
+                    </div>
+                </div> <!-- pricing style one -->
+            </div>
+
+
+            <div class="col-lg-4 col-md-7 col-sm-9">
+                <div class="pricing-style mt-30">
+                    <div class="pricing-icon text-center">
+                        <!--<img src="assets/images/pro.svg" alt="">-->
+                    </div>
+                    <div class="pricing-header text-center">
+                        <h5 class="sub-title">Évenement</h5>
+                    </div>
+                    <div class="pricing-list">
+                        <ul>
+                            <li><i class="lni lni-check-mark-circle"></i> Ajout d'évenement</li>
+                            <li><i class="lni lni-check-mark-circle"></i>Modification d'évenement </li>
+                        </ul>
+                    </div>
+                    <div class="pricing-btn rounded-buttons text-center">
+                        <a class="main-btn rounded-one" href="{{route('event.gestion')}}">Voir</a>
+                    </div>
+                </div> <!-- pricing style one -->
+            </div>
         </div> <!-- row -->
     </div> <!-- container -->
 </section>

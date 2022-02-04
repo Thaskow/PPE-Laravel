@@ -1,7 +1,11 @@
 @extends('administrateur.template')
 @section('addons')
 <link rel="stylesheet" href="{{asset("css/administrateur/contenu.css")}}">
-<style>img {
+<style>
+    html {
+        background:#f4f6f7;
+    }
+img {
     width: 500px;
     height: auto;
 }</style>
@@ -11,8 +15,7 @@
 @endsection
 @section('content')
    <!--====== PORTFOLIO PART START ======-->
-
-   <section id="portfolio" class="portfolio-area portfolio-four pb-100">
+   <section id="portfolio" class="contact-area">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6 col-md-10">
@@ -44,7 +47,8 @@
                             </div> <!-- single portfolio -->
                         </div>
                     @empty
-                        Aucune image
+                    <br>
+                    <h4>Auncune photo pour l'instant</h4>
                     @endforelse
                 </div> <!-- row -->
             </div>
@@ -53,7 +57,7 @@
 </section>
 
 <!--====== PORTFOLIO PART ENDS ======-->
-<section id="contact">
+<section id="contact" style="background:#f4f6f7">
     <div class="container">
         <div class="row" id="formEdit">
             <div class="col-lg-12">
@@ -67,7 +71,7 @@
                                     <label>Titre</label>
                                     <div class="input-items default">
                                         <input id="titre" name="titre" type="text" placeholder="Nom de la photo">
-                                        <i class="lni lni-user"></i>
+                                        <i class="lni lni-pencil"></i>
                                     </div>
                                 </div> <!-- form input -->
                             </div>
@@ -84,6 +88,20 @@
                             </div>
                         </div> <!-- row -->
                     </form>
+                    @if ($errors->any()) 
+                    <div clasxs="alert alert-danger"> 
+                        <ul> 
+                            @foreach ($errors->all() as $error) 
+                                <li>{{ $error }}</li> 
+                            @endforeach 
+                        </ul> 
+                    </div> 
+                    @endif 
+                    @if (Session::has('success'))
+                        <div>Succès, {{Session::get("success")}}</div>
+                    @elseif (Session::has("error"))
+                        <div>Erreur, {{Session::get("error")}}</div>
+                    @endif
                 </div> <!-- contact wrapper form -->
             </div>
         </div> <!-- row -->

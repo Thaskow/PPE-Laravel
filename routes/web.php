@@ -32,6 +32,13 @@ Route::get("admin/photos",[AdminController::class, 'photoIndex'])->name("photo.i
 Route::post("admin/photo/upload",[AdminController::class, 'photoUpload'])->name("photo.upload");
 
 
+Route::get("admin/evenement/statistique",[AdminController::class, 'eventStat'])->name("event.stats");
+Route::get("admin/evenement/gestion",[AdminController::class, 'eventGest'])->name("event.gestion");
+Route::post('admin/evenement',[AdminController::class,'eventSelected'])->name("event.selected");
+Route::post('admin/evenement/edit',[AdminController::class,'eventEdit'])->name("event.edit");
+
+
+
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
