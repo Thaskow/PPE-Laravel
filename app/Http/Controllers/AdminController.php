@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
-    public function __construct() 
-    { 
-        $this->middleware('auth'); 
-        $this->middleware('is_admin'); 
-    } 
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('is_admin');
+    }
     public function administrateur() {
         return view("administrateur.index");
     }
@@ -62,15 +62,12 @@ class AdminController extends Controller
             $image->url= $request->titre.".png";
             $image->save();
             $path = $request->titre.'.png';
-            $request->photo->storeAs('public/photos', $path);
-            $request->file('photo')->storeAs('public/thumbnail/', $path);
-            $mediumthumbnailpath = public_path('storage/thumbnail/'. $path);
+            $request->photo->storeAs('public\photos', $path);
+            $request->file('photo')->storeAs('public\thumbnail\\', $path);
+            $mediumthumbnailpath = public_path('storage\thumbnail\\'. $path);
             $this->createThumbnail($mediumthumbnailpath, 300, 185);
             return redirect()->back();
         }
-    }
-    public function newtemplate() {
-        return view("newtemplate");
     }
 
     public function createThumbnail($path, $width, $height)

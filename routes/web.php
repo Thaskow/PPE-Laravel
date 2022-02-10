@@ -20,7 +20,8 @@ Route::get('/', function () {
     return view('index');
 })->name("home");
 
-Route::get('/newtemplate',[AdminController::class,'newtemplate'])->name("newtemplate");
+Route::get('/newtemplate',[Controller::class,'newtemplate'])->name("newtemplate");
+Route::get('/onepage',[Controller::class,'onepage'])->name("onepage");
 
 Route::get('administrateur',[AdminController::class,'administrateur'])->name("administrateur");
 Route::get('admin/contenus',[AdminController::class,'contenuIndex'])->name("contenu.index");
