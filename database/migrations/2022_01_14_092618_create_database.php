@@ -45,18 +45,19 @@ class CreateDatabase extends Migration
         Schema::table('users', function (Blueprint $table) {
             $table->string('prenom')->nullable();
             $table->boolean('isAdmin')->default(0);
-            $table->boolean('isPrimoDonneur')->nullable();
-            $table->boolean('isMoelle')->nullable();
+            $table->boolean('isFirst')->default(0);
             $table->foreignId('promotion_id')->nullable()->constrained();
         });
-        Schema::create('user_evenement', function (Blueprint $table) {
+        Schema::create('evenement_user', function (Blueprint $table) {
             $table->foreignId('user_id')->constrained();
             $table->foreignId('evenement_id')->constrained();
             $table->primary(["evenement_id","user_id"]);
-            $table->boolean('isVenir');
+            $table->boolean('isDon');
             $table->dateTime('datePassage');
+            $table->boolean('isPrimoDonneur')->nullable();
+            $table->boolean('isMoelle')->nullable();
         });
-        Schema::create('promotion_evenement', function (Blueprint $table) {
+        Schema::create('evenement_promotion', function (Blueprint $table) {
             $table->foreignId('promotion_id')->constrained();
             $table->foreignId('evenement_id')->constrained();
             $table->primary(["evenement_id","promotion_id"]);

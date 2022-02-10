@@ -15,10 +15,10 @@ class Evenement extends Model
     }
     public function users()
     {
-        return $this->hasMany(User::class);
+        return $this->belongsToMany(User::class)->withPivot(["user_id", "evenement_id","isDon","datePassage","isPrimoDonneur","isMoelle"]);
     }
     public function promotions()
     {
-        return $this->belongsToMany(Promotion::class);
+        return $this->belongsToMany(Promotion::class)->withPivot(["promotion_id", "evenement_id","pourcentage","nbParticipant"]);
     }
 }

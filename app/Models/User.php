@@ -18,6 +18,10 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
 
+    public function evenement()
+    {
+        return $this->belongsToMany(Evenement::class)->withPivot(["user_id", "evenement_id","isDon","datePassage","isPrimoDonneur","isMoelle"]);
+    }
     /**
      * The attributes that are mass assignable.
      *

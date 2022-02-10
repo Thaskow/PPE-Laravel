@@ -106,7 +106,21 @@
 
     <!--====== BACK TOP TOP PART START ======-->
 
-    <a href="#" class="back-to-top"><i class="lni lni-chevron-up"></i></a>
+
+@if ($errors->any()) 
+
+<div class="back-to-top" style="display: inline-block;width:auto;height:auto;padding:5px;background:red;opacity:65%">
+        @foreach ($errors->all() as $error)
+        <p style="color:white;">{{$error}}</p>
+        @endforeach 
+</div>
+
+@endif 
+@if (Session::has('success'))
+    <a href="#" class="back-to-top" style="display: inline-block;"><i class="lni lni-chevron-up"></i></a>
+@elseif (Session::has("error"))
+    <a href="#" class="back-to-top" style="display: inline-block;"><i class="lni lni-chevron-up"></i></a>
+@endif
 
     <!--====== BACK TOP TOP PART ENDS ======-->
 

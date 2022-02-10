@@ -88,20 +88,6 @@ img {
                             </div>
                         </div> <!-- row -->
                     </form>
-                    @if ($errors->any()) 
-                    <div clasxs="alert alert-danger"> 
-                        <ul> 
-                            @foreach ($errors->all() as $error) 
-                                <li>{{ $error }}</li> 
-                            @endforeach 
-                        </ul> 
-                    </div> 
-                    @endif 
-                    @if (Session::has('success'))
-                        <div>Succès, {{Session::get("success")}}</div>
-                    @elseif (Session::has("error"))
-                        <div>Erreur, {{Session::get("error")}}</div>
-                    @endif
                 </div> <!-- contact wrapper form -->
             </div>
         </div> <!-- row -->

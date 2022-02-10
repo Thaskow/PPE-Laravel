@@ -34,7 +34,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('images')->insert([
             'titre' => Str::random(10),
-            'url' => Str::random(5).'.jpeg',
+            'url' => Str::random(5).'.png',
         ]);
         DB::table('contenus')->insert([
             'titre' => Str::random(10),

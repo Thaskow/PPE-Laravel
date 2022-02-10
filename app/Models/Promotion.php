@@ -15,6 +15,6 @@ class Promotion extends Model
     }
     public function evenements()
     {
-        return $this->belongsToMany(Evenement::class);
+        return $this->belongsToMany(Evenement::class)->withPivot(["promotion_id", "evenement_id","pourcentage","nbParticipant"]);
     }
 }
