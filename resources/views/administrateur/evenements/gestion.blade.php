@@ -15,24 +15,24 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <script>
+        $(document).ready(function () {
+            $(".contact-area").css('min-height',window.innerHeight+"px");
+        });
     function selectEvenement(id){
     $.ajax({
         type: 'post',
-        url: "{{route('event.selected')}}",
+        url: "{{route('event.selectedGes')}}",
         headers: {
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         data: {id:id},
         success: function(returnBack) {
-            console.log(returnBack);
-            $("#nom").val(returnBack["titre"]);
-            $("#lieuxE").val(returnBack["lieuEvenement"]);
-            $("#lieuxR").val(returnBack["lieuReunion"]);
-            $("#description").text(returnBack["description"]);
-            $("#creaOrEdit").text("Modification d'évenements");
-            $("#creaOrEditBtn").text("Modifier");
-            $("#dateR").val(returnBack["dateReunion"]);
-            $("#dateE").val(returnBack["dateEvenement"]);
-            $("#id").val(returnBack["id"]);
+            returnBack["promotions"].forEach(promotion => {
+                $(".refresh").append('<div class="card"><div class="card-header" id="headingTwo"><a href="#" class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">'+promotion["libelle"]+'</a></div><div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordiTwoxample" style=""><div class="card-body"><p class="text">');
+                promotion["users"].forEach(user => {
+                    $(".refresh").append(user["name"]);
+                });
+                $(".refresh").append('</p></div></div></div>');
+            });
         }
     });
 }
@@ -49,8 +49,8 @@
             <div class="row justify-content-center">
                 <div class="col-lg-12 col-md-10">
                     <div class="section-title text-center pb-30">
-                        <h3 class="title" id="creaOrEdit">Création d'évenements</h3>
-                        <p class="text">Ajouter & modifier les évenements en cours ou à venir.</p>
+                        <h3 class="title" id="creaOrEdit">Gestion d'évenements</h3>
+                        <p class="text">Temps de passage, création des convocation.</p>
                     </div> <!-- section title -->
                 </div>
             </div> <!-- row -->
@@ -59,7 +59,7 @@
                     <div class="col-lg-12 col-md-6">
                         <div class="single-contact-info contact-color-3 mt-30 d-flex ">
                             <select id="selectedContenu" class="feedback-input" onchange="selectEvenement(this.value)">
-                                <option selected hidde disabled>Choissisez un évenement à modifié</option>
+                                <option selected hidde disabled>Choissisez un évenement pour sa gestion</option>
 
                                 @forelse ($evenements as $evenement)
                                     <option value="{{$evenement->id}}">{{$evenement->titre}}</option>
@@ -70,79 +70,23 @@
                     </div>
                 </div> <!-- row -->
             </div> <!-- contact info -->
-            <div class="row" id="formEdit">
-                <div class="col-lg-12">
-                    <div class="contact-wrapper form-style-two">
-                        <form action="{{route('event.edit')}}" method="POST">
-                            @csrf
-                            <input type="text" id="id" name="id" value="{{old("id")}}" hidden>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-input mt-25">
-                                        <label>Nom</label>
-                                        <div class="input-items default">
-                                            <input id="nom" name="nom" type="text" value="{{old("nom")}}" placeholder="Nom de l'évenement">
-                                            <i class="lni lni-pencil"></i>
-                                        </div>
-                                    </div> <!-- form input -->
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-input mt-25">
-                                        <label>Lieux évenement</label>
-                                        <div class="input-items default">
-                                            <input id="lieuxE" name="lieuxE" type="text" value="{{old("lieuxE")}}" placeholder="Lieux de l'évenement">
-                                            <i class="lni lni-map"></i>
-                                        </div>
-                                    </div> <!-- form input -->
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-input mt-25">
-                                        <label>Date évenement</label>
-                                        <div class="input-items default">
-                                            <input id="dateE" name="dateE" value="{{old("dateE")}}" type="date">
-                                            <i class="lni lni-timer"></i>
-                                        </div>
-                                    </div> <!-- form input -->
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-input mt-25">
-                                        <label>Lieux réunnion</label>
-                                        <div class="input-items default">
-                                            <input id="lieuxR" name="lieuxR" value="{{old("lieuxR")}}" type="text" placeholder="Lieux de la réunnion primo donneur">
-                                            <i class="lni lni-map"></i>
-                                        </div>
-                                    </div> <!-- form input -->
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-input mt-25">
-                                        <label>Date réunnion</label>
-                                        <div class="input-items default">
-                                            <input id="dateR" name="dateR" value="{{old("dateR")}}" type="date">
-                                            <i class="lni lni-timer"></i>
-                                        </div>
-                                    </div> <!-- form input -->
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-input mt-25">
-                                        <label>Description</label>
-                                        <div class="input-items default">
-                                            <textarea  id="description" name="description" placeholder="Votre description de l'évenement.">{{old("description")}}</textarea>
-                                            <i class="lni lni-pencil-alt"></i>
-                                        </div>
-                                    </div> <!-- form input -->
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-input light-rounded-buttons mt-30">
-                                        <button id='creaOrEditBtn' class="main-btn light-rounded-two">Créer</button>
-                                    </div> <!-- form input -->
-                                </div>
-                            </div> <!-- row -->
-                        </form>
-                    </div> <!-- contact wrapper form -->
-                </div>
-            </div> <!-- row -->
         </div> <!-- container -->
+        <section id="about" class="about-area" style="padding-top: 0px;">
+            <div class="container">
+            <div class="row">
+            <div class="col-lg-5">
+            <div class="faq-content mt-45">
+            <div class="about-accordion">
+            <div class="accordion refresh" id="accordiTwoxample">
+            </div>
+            </div> 
+            </div> 
+            </div>
+            </div> 
+            </div> 
+            </section>
     </section>
+
 
     <!--====== CONTACT PART ENDS ======-->
 @endsection
