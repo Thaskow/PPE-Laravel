@@ -82,7 +82,7 @@
                         <div class="collapse navbar-collapse sub-menu-bar" id="navbarTwo">
                             <ul class="navbar-nav m-auto">
                                 <li class="nav-item active"><a class="page-scroll" href="#dondesang">Don du sang</a></li>
-                                <li class="nav-item"><a class="page-scroll" href="#dondemoelle">Don de moëlle</a></li>
+                                <li class="nav-item"><a class="page-scroll" href="#dondemoelle">Don de moelle</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#evenements">Evenements</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#inscription">Inscription</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#contact">Contact</a></li>
@@ -101,7 +101,7 @@
     </section>
 
      <!--====== NAVBAR TWO PART ENDS ======-->
-
+    @yield('content')
 
     <!--====== FOOTER PART START ======-->
 
