@@ -28,9 +28,8 @@
         success: function(returnBack) {
             returnBack["promotions"].forEach(promotion => {
                 $(".refresh").append('<div class="card"><div class="card-header" id="headingTwo"><a href="#" class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">'+promotion["libelle"]+'</a></div><div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordiTwoxample" style=""><div class="card-body"><p class="text">');
-                promotion["users"].forEach(user => {
-                    $(".refresh").append(user["name"]);
-                });
+ 
+ 
                 $(".refresh").append('</p></div></div></div>');
             });
         }
