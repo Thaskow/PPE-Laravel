@@ -34,7 +34,9 @@ Route::post("admin/photo/upload",[AdminController::class, 'photoUpload'])->name(
 
 Route::get("admin/evenement/statistique",[AdminController::class, 'eventStat'])->name("event.stats");
 Route::get("admin/evenement/gestion",[AdminController::class, 'eventGest'])->name("event.gestion");
+Route::get("admin/evenement/creation",[AdminController::class, 'eventCrea'])->name("event.crea");
 Route::post('admin/evenement',[AdminController::class,'eventSelected'])->name("event.selected");
+Route::post('admin/evenement/gest',[AdminController::class,'eventSelectedGes'])->name("event.selectedGes");
 Route::post('admin/evenement/edit',[AdminController::class,'eventEdit'])->name("event.edit");
 
 

@@ -81,7 +81,8 @@
                                 <li class="nav-item {{Route::currentRouteName()=='contenu.index'?"active":"";}}"><a class="page-scroll" href="{{route('contenu.index')}}">Contenu</a></li>
                                 <li class="nav-item {{Route::currentRouteName()=='photo.index'?"active":"";}}"><a class="page-scroll" href="{{route('photo.index')}}">Photos</a></li>
                                 <li class="nav-item {{Route::currentRouteName()=='event.stats'?"active":"";}}"><a class="page-scroll" href="{{route('event.stats')}}">Statistique</a></li>
-                                <li class="nav-item {{Route::currentRouteName()=='event.gestion'?"active":"";}}"><a class="page-scroll" href="{{route('event.gestion')}}">Évenement</a></li>
+                                <li class="nav-item {{Route::currentRouteName()=='event.crea'?"active":"";}}"><a class="page-scroll" href="{{route('event.crea')}}">Évenement</a></li>
+                                <li class="nav-item {{Route::currentRouteName()=='event.gestion'?"active":"";}}"><a class="page-scroll" href="{{route('event.gestion')}}">Gestion</a></li>
                             </ul>
                         </div>
 

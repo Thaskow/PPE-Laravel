@@ -30,6 +30,10 @@ class AdminController extends Controller
         $contenu = Contenu::find($request->id);
         return response()->json($contenu);
     }
+    public function eventSelectedGes(Request $request){
+        $evenement = Evenement::with("promotions.users")->find($request->id);
+        return response()->json($evenement);
+    }
     public function contenuEdit(Request $request) {
         $contenu = Contenu::find($request->id);
         $contenu->titre = $request->titre;
@@ -78,6 +82,10 @@ class AdminController extends Controller
     $img->save($path);
     }
 
+    public function eventCrea(){
+        $evenements = Evenement::all();
+        return view("administrateur.evenements.crea",compact("evenements"));
+    }
     public function eventGest(){
         $evenements = Evenement::all();
         return view("administrateur.evenements.gestion",compact("evenements"));

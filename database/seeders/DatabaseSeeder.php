@@ -47,8 +47,6 @@ class DatabaseSeeder extends Seeder
             'email' => Str::random(10).'@gmail.com',
             'password' => Hash::make('password'),
             'isAdmin' => (bool)rand(0,1),
-            'isPrimoDonneur'=> (bool)rand(0,1),
-            'isMoelle'=> (bool)rand(0,1),
         ]);
         }
     }
