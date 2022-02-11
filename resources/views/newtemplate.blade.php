@@ -31,6 +31,12 @@
     <!--====== Style CSS ======-->
     <link rel="stylesheet" href={{asset('css/style.css')}}>
 
+    <!--====== Card CSS ======-->
+    <link rel="stylesheet" href={{asset('css/card.css')}}>
+
+    <!--====== Drop CSS ======-->
+    <link rel="stylesheet" href={{asset('css/drop.css')}}>
+
 </head>
 
 <body>
