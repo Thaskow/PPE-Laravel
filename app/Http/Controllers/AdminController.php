@@ -32,7 +32,23 @@ class AdminController extends Controller
     }
     public function eventSelectedGes(Request $request){
         $evenement = Evenement::with("promotions.users")->find($request->id);
-        return response()->json($evenement);
+        $value= "";
+        $int = 1;
+        foreach ($evenement->promotions as $promo) {
+            $value = $value . '<div class="card">';
+            $value = $value . '<div class="card-header" id="heading'.$int.'">';
+            $value = $value . '<a href="#" data-toggle="collapse" data-target="#collapse'.$int.'" aria-expanded="false" aria-controls="collapse'.$int.'" class="collapsed">'.$promo->libelle.'</a>';
+            $value = $value . '</div>';
+            $value = $value . '<div id="collapse'.$int.'" class="collapse" aria-labelledby="heading'.$int.'" data-parent="#accordionExample" style="">';
+            $value = $value . '<div class="card-body">';
+            $value = $value . '<p class="text">';
+            foreach ($promo->users as $user) {
+                $value = $value . $user->name."<br>";
+            }
+            $value = $value . "</p></div></div></div>";
+            $int += 1;
+        }
+        return response()->json($value);
     }
     public function contenuEdit(Request $request) {
         $contenu = Contenu::find($request->id);

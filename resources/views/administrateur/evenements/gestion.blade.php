@@ -26,12 +26,7 @@
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
         data: {id:id},
         success: function(returnBack) {
-            returnBack["promotions"].forEach(promotion => {
-                $(".refresh").append('<div class="card"><div class="card-header" id="headingTwo"><a href="#" class="collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">'+promotion["libelle"]+'</a></div><div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordiTwoxample" style=""><div class="card-body"><p class="text">');
- 
- 
-                $(".refresh").append('</p></div></div></div>');
-            });
+            $(".refresh").append(returnBack);
         }
     });
 }
@@ -74,9 +69,10 @@
             <div class="container">
             <div class="row">
             <div class="col-lg-5">
-            <div class="faq-content mt-45">
+            <div class="faq-content">
             <div class="about-accordion">
-            <div class="accordion refresh" id="accordiTwoxample">
+            <div class="accordion refresh" id="accordionExample">
+
             </div>
             </div> 
             </div> 
