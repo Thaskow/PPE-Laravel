@@ -16,11 +16,8 @@ use App\Http\Controllers\Controller;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name("home");
 
-Route::get('/newtemplate',[Controller::class,'newtemplate'])->name("newtemplate");
+Route::get('/',[Controller::class,'newtemplate'])->name("newtemplate");
 Route::get('/onepage',[Controller::class,'onepage'])->name("onepage");
 
 Route::get('administrateur',[AdminController::class,'administrateur'])->name("administrateur");
