@@ -17,6 +17,102 @@
 
 
 
+@import "bourbon";
+@import url(https://fonts.googleapis.com/css?family=Lato:400,700,300);
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+.containerfile {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.formfile {
+  width: 400px;
+}
+
+.file-upload-wrapper {
+    border-radius: 0 5px 5px 0;
+    border: 2px solid #04abd3;
+    border-radius : 9px;
+    transition-duration: 0.4s;
+
+
+  position: relative;
+  width: 100%;
+  height: 45px;
+}
+.file-upload-wrapper:hover {
+    content: 'Upload';
+    color: #04abd3;
+    background: white;
+}
+
+.file-upload-wrapper::before {
+    content: 'Upload';
+    text-align: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: inline-block;
+    height: 42px;
+    background-color: #04abd3;
+    color: white;
+    font-weight: 700;
+    z-index: 25;
+    font-size: 16px;
+    line-height: 42px;
+    padding: 0 15px;
+    text-transform: uppercase;
+    pointer-events: none;
+    border-radius: 0 5px 5px 0;
+    transition-duration: 0.5s;
+  }
+  .file-upload-wrapper::after{
+    content: attr(data-text);
+    font-size: 10px;
+    position: left;
+    top: 0;
+    left: 0;
+
+    transition-duration: 0.4s;
+    background: white;
+    padding: 10px 15px;
+    display: block;
+    width: calc(100% - 10px);
+    pointer-events: none;
+    z-index: 20;
+    height: 38px;
+    line-height: 40px;
+    color: white;
+    border-radius: 5px 10px 10px 5px;
+    font-weight: 300;
+}
+
+.inputfile {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    height: 57px;
+    margin: 0;
+    padding: 0;
+    display: block;
+    cursor: pointer;
+    width: 100%;
+  }
+
+
+
+
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 form { max-width:420px; margin:50px auto; }

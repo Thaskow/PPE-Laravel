@@ -38,6 +38,7 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('contenus')->insert([
             'titre' => Str::random(10),
+            'designation' => Str::random(10),
             'description' => Str::random(100),
             'designation' => Str::random(10),
         ]);
