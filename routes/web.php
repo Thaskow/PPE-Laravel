@@ -16,9 +16,7 @@ use App\Http\Controllers\Controller;
 |
 */
 
-
-Route::get('/',[Controller::class,'newtemplate'])->name("newtemplate");
-Route::get('/onepage',[Controller::class,'onepage'])->name("onepage");
+Route::get('/',[Controller::class,'onepage'])->name("onepage");
 
 Route::get('administrateur',[AdminController::class,'administrateur'])->name("administrateur");
 Route::get('admin/contenus',[AdminController::class,'contenuIndex'])->name("contenu.index");
