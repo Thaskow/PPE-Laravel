@@ -1,5 +1,9 @@
 @extends('administrateur.template')
 @section('addons')
+<script>$("form").on("change", ".file-upload-field", function(){
+    $(this).parent(".file-upload-wrapper").attr("data-text",         $(this).val().replace(/.*(\/|\\)/, '') );
+});
+</script>
 <link rel="stylesheet" href="{{asset("css/administrateur/contenu.css")}}">
 <style>
     html {
@@ -48,7 +52,7 @@ img {
                         </div>
                     @empty
                     <br>
-                    <h4>Auncune photo pour l'instant</h4>
+                    <h4>"Auncune photo pour l'instant"</h4>
                     @endforelse
                 </div> <!-- row -->
             </div>
@@ -75,12 +79,43 @@ img {
                                     </div>
                                 </div> <!-- form input -->
                             </div>
+
+                            <div class="containerfile col-md-6">
+                                <div class="form-input mt-25">
+                                    <label>Image</label>
+                                <form class="formfile">
+                                  <div class="file-upload-wrapper" data-text="Selectionnez une image">
+                                    <input name="file-upload-field photo" type="file" class="file-upload-field inputfile" >
+                                  </div>
+                                </form>
+                                </div>
+                            </div>
+
+
+
+
+
+                            <!--
                             <div class="col-md-6">
                                 <div class="form-input mt-25">
                                     <label>Image</label>
-                                    <input id="image" type='file' name="photo">
-                                </div> <!-- form input -->
+                                    <input type="file" name="photo">
+                                </div>
                             </div>
+
+
+
+                             <div class="col-md-6">
+                                <div class="form-input mt-25">
+                                    <label>Image</label>
+                                    <div id="divfile" class="buttonfile buttonfilehover">
+                                        Selectionner une image
+                                        <input class="buttonfile" id="image buttonfilehover" type="file" name="photo"/>
+                                    </div>
+                                </div>
+                            </div> -->
+
+
                             <div class="col-md-12">
                                 <div class="form-input light-rounded-buttons mt-30">
                                     <button type="submit" class="main-btn light-rounded-two">Ajouter</button>

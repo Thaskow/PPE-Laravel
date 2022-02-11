@@ -38,10 +38,11 @@ class DatabaseSeeder extends Seeder
         ]);
         DB::table('contenus')->insert([
             'titre' => Str::random(10),
+            'designation' => Str::random(10),
             'description' => Str::random(100),
         ]);
         DB::table('users')->insert([
-            'nom' => Str::random(10),
+            'name' => Str::random(10),
             'prenom' => Str::random(100),
             'email' => Str::random(10).'@gmail.com',
             'password' => Hash::make('password'),
