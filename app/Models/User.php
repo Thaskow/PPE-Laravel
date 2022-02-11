@@ -22,6 +22,10 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Evenement::class)->withPivot(["user_id", "evenement_id","isDon","datePassage","isPrimoDonneur","isMoelle"]);
     }
+    public function promotion()
+    {
+        return $this->belongsTo(Promotion::class);
+    }
     /**
      * The attributes that are mass assignable.
      *

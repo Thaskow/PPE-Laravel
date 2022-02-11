@@ -17,7 +17,7 @@
 
 -----------------------------------------------------------------------------------*/
 /*===========================
-      01.COMMON css 
+      01.COMMON css
 ===========================*/
 @import url("https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800");
 body {
@@ -186,7 +186,7 @@ p {
       height: 100%;
       border-style: solid;
       /* Spinner Color */
-      border-color: #0067f4 #0067f4 #e9ecef;
+      border-color: #04abd3 #04abd3 #e9ecef;
       border-radius: 50%;
       border-width: 6px; }
     .preloader .loader .ytp-spinner-left .ytp-spinner-circle {
@@ -396,7 +396,7 @@ p {
     -o-transform: rotate(-130deg);
     transform: rotate(-130deg); } }
 /*===========================
-    11.BUTTON css 
+    11.BUTTON css
 ===========================*/
 .buttons-title .title {
   font-size: 36px;
@@ -1988,7 +1988,7 @@ p {
     background-position: right center; }
 
 /*===========================
-    06.FORM ELEMENTS css 
+    06.FORM ELEMENTS css
 ===========================*/
 .form-elements-title {
   font-size: 36px;
@@ -2159,7 +2159,7 @@ p {
     border-radius: 5px; }
 
 /*===========================
-        09.NAVBAR css 
+        09.NAVBAR css
 ===========================*/
 .navbar-area {
   position: absolute;
@@ -2325,7 +2325,7 @@ p {
         .navbar-area .navbar .navbar-btn li a.solid {
           background-color: #fff;
           border-color: #fff;
-          color: #0067f4; }
+          color: #04abd3; }
           .navbar-area .navbar .navbar-btn li a.solid:hover {
             background-color: transparent;
             color: #fff; }
@@ -2349,27 +2349,27 @@ p {
       color: #121212;
       opacity: 1; }
     .navbar-area.sticky .navbar .navbar-btn li a.light {
-      border-color: #0067f4;
-      color: #0067f4; }
+      border-color: #04abd3;
+      color: #04abd3; }
     .navbar-area.sticky .navbar .navbar-btn li a.solid {
-      border-color: #0067f4;
-      background-color: #0067f4;
+      border-color: #04abd3;
+      background-color: #04abd3;
       color: #fff; }
 
 /*===========================
-       10.SLIDER css 
+       10.SLIDER css
 ===========================*/
 .carousel-item {
-  background-color: #0067f4;
+  background-color: #04abd3;
   position: relative; }
   .carousel-item::before {
     position: absolute;
     content: '';
     width: 33%;
     height: 100%;
-    background: -webkit-linear-gradient(rgba(0, 103, 244, 0.3) 0%, rgba(43, 219, 220, 0.3) 100%);
-    background: -o-linear-gradient(rgba(0, 103, 244, 0.3) 0%, rgba(43, 219, 220, 0.3) 100%);
-    background: linear-gradient(rgba(0, 103, 244, 0.3) 0%, rgba(43, 219, 220, 0.3) 100%);
+    background: -webkit-linear-gradient(rgba(183, 17, 41) 0%, rgba(4, 171, 211) 100%);
+    background: -o-linear-gradient(rgba(183, 17, 41) 0%, rgba(4, 171, 211) 100%);
+    background: linear-gradient(rgba(183, 17, 41) 0%, rgba(4, 171, 211) 100%);
     top: 0;
     right: 15%;
     -webkit-transform: skewX(20deg);
@@ -2524,7 +2524,7 @@ p {
       right: 30px; } }
 
 /*===========================
-      17.FEATURES css 
+      17.FEATURES css
 ===========================*/
 /*===== features TWO =====*/
 .features-area {
@@ -2534,7 +2534,7 @@ p {
 
 .single-features {
   padding: 40px 20px 52px;
-  background-color: #fff; }
+  background-color: white; }
   .single-features .features-title-icon .features-title a {
     font-size: 36px;
     line-height: 45px;
@@ -2558,7 +2558,7 @@ p {
         font-size: 36px;
         line-height: 45px; } }
     .single-features .features-title-icon .features-title a:hover {
-      color: #0067f4; }
+      color: #04abd3; }
   .single-features .features-title-icon .features-icon {
     position: relative;
     display: inline-block; }
@@ -2578,13 +2578,13 @@ p {
     color: #121212;
     margin-top: 16px; }
   .single-features .features-content .features-btn {
-    color: #0067f4;
+    color: #04abd3;
     font-size: 16px;
     font-weight: 700;
     margin-top: 29px; }
 
 /*===========================
-      18.PORTFOLIO css 
+      18.PORTFOLIO css
 ===========================*/
 .portfolio-area {
   padding-top: 120px;
@@ -2693,7 +2693,7 @@ p {
   visibility: visible; }
 
 /*===========================
-      16.PRICING css 
+      16.PRICING css
 ===========================*/
 .pricing-area {
   background-color: #f4f6f7;
@@ -2772,12 +2772,13 @@ p {
         box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.16); }
 
 /*===========================
-       15.ABOUT css 
+       15.ABOUT css
 ===========================*/
 .about-area {
-  padding-top: 80px;
+  padding-top: 130px;
   padding-bottom: 130px;
-  position: relative; }
+  position: relative;
+  background-color:#ddd;}
   .about-area .about-title .sub-title {
     font-size: 18px;
     font-weight: 400;
@@ -2835,7 +2836,7 @@ p {
     width: 100%; }
 
 /*===========================
-      26.TESTIMONIAL css 
+      26.TESTIMONIAL css
 ===========================*/
 /*===== TESTIMONIAL STYLE THREE =====*/
 .testimonial-area {
@@ -2983,7 +2984,7 @@ p {
         left: -445px; } }
 
 /*===========================
-        13.TEAM css 
+        13.TEAM css
 ===========================*/
 /*===== TEAM STYLE ELEVEN =====*/
 .team-style-eleven {
@@ -3098,7 +3099,7 @@ p {
       color: #fff; }
 
 /*===========================
-      19.CONTACT css 
+      19.CONTACT css
 ===========================*/
 .contact-area {
   padding-top: 120px;
@@ -3155,7 +3156,7 @@ p.form-message.success, p.form-message.error {
     font-weight: 400; }
 
 /*===========================
-    21.FOOTER css 
+    21.FOOTER css
 ===========================*/
 /*===== FOOTER FIVE =====*/
 .footer-area {

@@ -61,8 +61,8 @@ class CreateDatabase extends Migration
             $table->foreignId('promotion_id')->constrained();
             $table->foreignId('evenement_id')->constrained();
             $table->primary(["evenement_id","promotion_id"]);
-            $table->double('pourcentage');
-            $table->integer('nbParticipant');
+            $table->double('pourcentage')->nullable();
+            $table->integer('nbParticipant')->nullable();
         });
     }
 

@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Validator;
 
 class AdminController extends Controller
 {
-    public function __construct() 
-    { 
-        $this->middleware('auth'); 
-        $this->middleware('is_admin'); 
-    } 
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('is_admin');
+    }
     public function administrateur() {
         return view("administrateur.index");
     }
@@ -29,6 +29,26 @@ class AdminController extends Controller
     public function contenuSelected(Request $request){
         $contenu = Contenu::find($request->id);
         return response()->json($contenu);
+    }
+    public function eventSelectedGes(Request $request){
+        $evenement = Evenement::with("promotions.users")->find($request->id);
+        $value= "";
+        $int = 1;
+        foreach ($evenement->promotions as $promo) {
+            $value = $value . '<div class="card">';
+            $value = $value . '<div class="card-header" id="heading'.$int.'">';
+            $value = $value . '<a href="#" data-toggle="collapse" data-target="#collapse'.$int.'" aria-expanded="false" aria-controls="collapse'.$int.'" class="collapsed">'.$promo->libelle.'</a>';
+            $value = $value . '</div>';
+            $value = $value . '<div id="collapse'.$int.'" class="collapse" aria-labelledby="heading'.$int.'" data-parent="#accordionExample" style="">';
+            $value = $value . '<div class="card-body">';
+            $value = $value . '<p class="text">';
+            foreach ($promo->users as $user) {
+                $value = $value . $user->name."<br>";
+            }
+            $value = $value . "</p></div></div></div>";
+            $int += 1;
+        }
+        return response()->json($value);
     }
     public function contenuEdit(Request $request) {
         $contenu = Contenu::find($request->id);
@@ -58,15 +78,12 @@ class AdminController extends Controller
             $image->url= $request->titre.".png";
             $image->save();
             $path = $request->titre.'.png';
-            $request->photo->storeAs('public/photos', $path);
-            $request->file('photo')->storeAs('public/thumbnail/', $path);
-            $mediumthumbnailpath = public_path('storage/thumbnail/'. $path);
+            $request->photo->storeAs('public\photos', $path);
+            $request->file('photo')->storeAs('public\thumbnail\\', $path);
+            $mediumthumbnailpath = public_path('storage\thumbnail\\'. $path);
             $this->createThumbnail($mediumthumbnailpath, 300, 185);
             return redirect()->back();
         }
-    }
-    public function newtemplate() {
-        return view("newtemplate");
     }
 
     public function createThumbnail($path, $width, $height)
@@ -78,6 +95,10 @@ class AdminController extends Controller
     $img->save($path);
     }
 
+    public function eventCrea(){
+        $evenements = Evenement::all();
+        return view("administrateur.evenements.crea",compact("evenements"));
+    }
     public function eventGest(){
         $evenements = Evenement::all();
         return view("administrateur.evenements.gestion",compact("evenements"));
@@ -121,5 +142,16 @@ class AdminController extends Controller
             $evenement->save();
             return redirect()->back();
         }
+    }
+    public function importCSV() {
+        return view("administrateur.import");
+    }
+    public function importUpload(Request $request) {
+        $request->csv->storeAs('public\csv', $request->csv->getClientOriginalName());
+        $file = fopen(url('storage/csv/'.$request->csv->getClientOriginalName()),"r");
+        print_r(fgetcsv($file));
+        dd($file);
+        Session::flash("success","Fichier CSV correctement importé.");
+        return redirect()->back();
     }
 }

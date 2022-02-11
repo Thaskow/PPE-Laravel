@@ -40,6 +40,7 @@ class DatabaseSeeder extends Seeder
             'titre' => Str::random(10),
             'designation' => Str::random(10),
             'description' => Str::random(100),
+            'designation' => Str::random(10),
         ]);
         DB::table('users')->insert([
             'name' => Str::random(10),
@@ -47,8 +48,6 @@ class DatabaseSeeder extends Seeder
             'email' => Str::random(10).'@gmail.com',
             'password' => Hash::make('password'),
             'isAdmin' => (bool)rand(0,1),
-            'isPrimoDonneur'=> (bool)rand(0,1),
-            'isMoelle'=> (bool)rand(0,1),
         ]);
         }
     }

@@ -16,11 +16,9 @@ use App\Http\Controllers\Controller;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name("home");
 
-Route::get('/newtemplate',[AdminController::class,'newtemplate'])->name("newtemplate");
+Route::get('/',[Controller::class,'newtemplate'])->name("newtemplate");
+Route::get('/onepage',[Controller::class,'onepage'])->name("onepage");
 
 Route::get('administrateur',[AdminController::class,'administrateur'])->name("administrateur");
 Route::get('admin/contenus',[AdminController::class,'contenuIndex'])->name("contenu.index");
@@ -34,11 +32,13 @@ Route::post("admin/photo/upload",[AdminController::class, 'photoUpload'])->name(
 
 Route::get("admin/evenement/statistique",[AdminController::class, 'eventStat'])->name("event.stats");
 Route::get("admin/evenement/gestion",[AdminController::class, 'eventGest'])->name("event.gestion");
+Route::get("admin/evenement/creation",[AdminController::class, 'eventCrea'])->name("event.crea");
 Route::post('admin/evenement',[AdminController::class,'eventSelected'])->name("event.selected");
+Route::post('admin/evenement/gest',[AdminController::class,'eventSelectedGes'])->name("event.selectedGes");
 Route::post('admin/evenement/edit',[AdminController::class,'eventEdit'])->name("event.edit");
 
-
-
+Route::get("admin/import",[AdminController::class, 'importCSV'])->name("import.csv");
+Route::post("admin/import/upload",[AdminController::class, 'importUpload'])->name("import.upload");
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
