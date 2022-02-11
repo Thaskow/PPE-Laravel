@@ -83,6 +83,7 @@
                                 <li class="nav-item {{Route::currentRouteName()=='event.stats'?"active":"";}}"><a class="page-scroll" href="{{route('event.stats')}}">Statistique</a></li>
                                 <li class="nav-item {{Route::currentRouteName()=='event.crea'?"active":"";}}"><a class="page-scroll" href="{{route('event.crea')}}">Évenement</a></li>
                                 <li class="nav-item {{Route::currentRouteName()=='event.gestion'?"active":"";}}"><a class="page-scroll" href="{{route('event.gestion')}}">Gestion</a></li>
+                                <li class="nav-item {{Route::currentRouteName()=='import.csv'?"active":"";}}"><a class="page-scroll" href="{{route('import.csv')}}">Import</a></li>
                             </ul>
                         </div>
 
@@ -118,9 +119,13 @@
 
 @endif 
 @if (Session::has('success'))
-    <a href="#" class="back-to-top" style="display: inline-block;"><i class="lni lni-chevron-up"></i></a>
+<div class="back-to-top" style="display: inline-block;width:auto;height:auto;padding:5px;background:green;opacity:65%">
+    <p style="color:white;">{{Session::get('success')}}</p>
+</div>
 @elseif (Session::has("error"))
-    <a href="#" class="back-to-top" style="display: inline-block;"><i class="lni lni-chevron-up"></i></a>
+<div class="back-to-top" style="display: inline-block;width:auto;height:auto;padding:5px;background:red;opacity:65%">
+    <p style="color:white;">{{Session::get('error')}}</p>
+</div>
 @endif
 
     <!--====== BACK TOP TOP PART ENDS ======-->

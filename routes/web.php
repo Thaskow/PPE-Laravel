@@ -37,8 +37,8 @@ Route::post('admin/evenement',[AdminController::class,'eventSelected'])->name("e
 Route::post('admin/evenement/gest',[AdminController::class,'eventSelectedGes'])->name("event.selectedGes");
 Route::post('admin/evenement/edit',[AdminController::class,'eventEdit'])->name("event.edit");
 
-
-
+Route::get("admin/import",[AdminController::class, 'importCSV'])->name("import.csv");
+Route::post("admin/import/upload",[AdminController::class, 'importUpload'])->name("import.upload");
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

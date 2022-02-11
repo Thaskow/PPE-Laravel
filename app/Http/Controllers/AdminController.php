@@ -143,4 +143,15 @@ class AdminController extends Controller
             return redirect()->back();
         }
     }
+    public function importCSV() {
+        return view("administrateur.import");
+    }
+    public function importUpload(Request $request) {
+        $request->csv->storeAs('public\csv', $request->csv->getClientOriginalName());
+        $file = fopen(url('storage/csv/'.$request->csv->getClientOriginalName()),"r");
+        print_r(fgetcsv($file));
+        dd($file);
+        Session::flash("success","Fichier CSV correctement importé.");
+        return redirect()->back();
+    }
 }
