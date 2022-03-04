@@ -35,7 +35,7 @@
                                     <h4 class="features-title"><a href="#">{{ $object->titre }}</a></h4>
                                 </div>
                                 <div class="features-content">
-                                    <p class="text">{{ $object->description }}</p>
+                                    <p class="text">{!! $object->description !!}</p>
                                     <a class="features-btn" href="#">LEARN MORE</a>
                                 </div>
                             </div>
@@ -72,7 +72,7 @@
                                     <h4 class="features-title"><a href="#">{{ $object->titre }}</a></h4>
                                 </div>
                                 <div class="features-content">
-                                    <p class="text">{{ $object->description }}</p>
+                                    <p class="text">{!! $object->description !!}</p>
                                     <a class="features-btn" href="#">LEARN MORE</a>
                                 </div>
                             </div>

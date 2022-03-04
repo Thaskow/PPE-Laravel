@@ -65,7 +65,7 @@
                 </div> <!-- row -->
             </div> <!-- contact info -->
         </div> <!-- container -->
-        <section id="about" class="about-area" style="padding-top: 0px;">
+        <section id="about" class="about-area" style="padding-top: 0px;background:#f4f6f7">
             <div class="container">
             <div class="row">
             <div class="col-lg-5">
