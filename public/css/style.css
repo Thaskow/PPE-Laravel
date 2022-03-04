@@ -2576,7 +2576,8 @@ p {
     font-size: 14px;
     line-height: 20px;
     color: #121212;
-    margin-top: 16px; }
+    margin-top: 16px;
+    margin-bottom: 16px; }
   .single-features .features-content .features-btn {
     color: #04abd3;
     font-size: 16px;

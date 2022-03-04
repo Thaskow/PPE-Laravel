@@ -17,7 +17,7 @@ class Controller extends BaseController
     public function onepage() {
         $contenuMoelle = Contenu::where('designation','=','OnePageMoelle')->get();
         $contenuSang = Contenu::where('designation','OnePageSang')->get();
-
-        return view("onepage", compact('contenuMoelle','contenuSang'));
+        $cardSang = Contenu::where('designation','like','cardSang'.'%')->get();
+        return view("onepage", compact('contenuMoelle','contenuSang','cardSang'));
     }
 }
