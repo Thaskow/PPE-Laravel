@@ -83,11 +83,9 @@ img {
                             <div class="containerfile col-md-6">
                                 <div class="form-input mt-25">
                                     <label>Image</label>
-                                <form class="formfile">
                                   <div class="file-upload-wrapper" data-text="Selectionnez une image">
-                                    <input name="file-upload-field photo" type="file" class="file-upload-field inputfile" >
+                                    <input name="photo" type="file" class="file-upload-field inputfile" >
                                   </div>
-                                </form>
                                 </div>
                             </div>
 

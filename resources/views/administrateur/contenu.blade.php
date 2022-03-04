@@ -19,7 +19,7 @@
                 $("#formEdit").show();
                 $("#titre:text").val(returnBack["titre"]);
                 $("#id:text").val(returnBack["id"]);
-                $("#description").text(returnBack["description"]);
+                CKEDITOR.instances.description.setData(returnBack["description"]);
             }
         });
     }
@@ -89,7 +89,11 @@
                                     <div class="form-input mt-25">
                                         <label>Description</label>
                                         <div class="input-items default">
-                                            <textarea id="description" name="description" placeholder="Message"></textarea>
+                                            <textarea class="form-control" id="description" name="description" placeholder="Message"></textarea>
+                                            <script src="//cdn.ckeditor.com/4.16.2/basic/ckeditor.js"></script>
+                                            <script>
+                                            CKEDITOR.replace( 'description' );
+                                            </script>
                                             <i class="lni lni-pencil-alt"></i>
                                         </div>
                                     </div> <!-- form input -->

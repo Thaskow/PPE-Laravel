@@ -147,10 +147,32 @@ class AdminController extends Controller
         return view("administrateur.import");
     }
     public function importUpload(Request $request) {
+        /* 
+        Rechercher la promotion de l'user
+        Si elle existe
+            Récupérer son ID
+            Ajouter l'utilisateur
+            Liée l'user avec l'id de promo
+        Si elle existe pas 
+            Crée la promotion
+            Récupérer son id
+            Ajouter l'utilisateur
+            Liée l'user avec l'id de promo
+        Fin
+        */
         $request->csv->storeAs('public\csv', $request->csv->getClientOriginalName());
         $file = fopen(url('storage/csv/'.$request->csv->getClientOriginalName()),"r");
-        print_r(fgetcsv($file));
-        dd($file);
+        $lines = array();
+        while(! feof($file))
+          {
+            $a = array();
+            foreach (explode(';',fgetcsv($file)[0]) as $line) {
+                array_push($a,$line);
+            }
+            array_push($lines, $a);
+          }
+        array_splice($lines, 0, 1);
+        fclose($file);
         Session::flash("success","Fichier CSV correctement importé.");
         return redirect()->back();
     }
