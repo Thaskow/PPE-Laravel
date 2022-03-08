@@ -21,7 +21,7 @@ class CreateDatabase extends Migration
         Schema::create('evenements', function (Blueprint $table) {
             $table->id();
             $table->string('titre');
-            $table->string('description');
+            $table->longText('description');
             $table->date('dateEvenement');
             $table->string('lieuEvenement');
             $table->date('dateReunion');
@@ -38,7 +38,7 @@ class CreateDatabase extends Migration
         Schema::create('contenus', function (Blueprint $table) {
             $table->id();
             $table->string('titre');
-            $table->string('description');
+            $table->longText('description');
             $table->foreignId('image_id')->nullable()->constrained();
             $table->timestamps();
         });
