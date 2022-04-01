@@ -15,9 +15,12 @@ use App\Http\Controllers\Controller;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//Routes non-admin
 Route::get('/',[Controller::class,'onepage'])->name("onepage");
+Route::get('evenement',[Controller::class, 'evenement'])->name("evenement");
 
+
+//Routes admin
 Route::get('administrateur',[AdminController::class,'administrateur'])->name("administrateur");
 Route::get('admin/contenus',[AdminController::class,'contenuIndex'])->name("contenu.index");
 Route::post('admin/contenu',[AdminController::class,'contenuSelected'])->name("contenu.selected");
