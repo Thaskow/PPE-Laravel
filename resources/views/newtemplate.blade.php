@@ -91,7 +91,7 @@
                                 <li class="nav-item"><a class="page-scroll" href="#dondemoelle">Don de moelle</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#evenements">Evenements</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#inscription">Inscription</a></li>
-                                <li class="nav-item"><a class="page-scroll" href="#contact">Contact</a></li>
+                                <li class="nav-item"><a href="{{ route('contact') }}">Contact</a></li>
                             </ul>
                         </div>
 
