@@ -13,11 +13,11 @@
 <header>
     <nav>
         <div id="start">
-        <a href="#donDuSang" class="{{Route::currentRouteName()=="#donDuSang"?"active":"";}}">Don du sang</a>
-        <a href="#donDeMoelle" class="{{Route::currentRouteName()=="home/#donDeMoelle"?"active":"";}}">Don de moëlle</a>
-        <a href="{{route('home')}}" class="{{Route::currentRouteName()=="home"?"active":"";}}">Évenement</a>
-        <a href="{{route('home')}}" class="{{Route::currentRouteName()=="home"?"active":"";}}">Inscription</a>
-        <a href="{{route('home')}}" class="{{Route::currentRouteName()=="home"?"active":"";}}">Contact</a>
+        <a href="{{route('onepage')}}#donDuSang" class="{{Route::currentRouteName()=="#donDuSang"?"active":"";}}">Don du sang</a>
+        <a href="{{route('onepage')}}#donDeMoelle" class="{{Route::currentRouteName()=="home/#donDeMoelle"?"active":"";}}">Don de moëlle</a>
+        <a href="{{route('onepage')}}" class="{{Route::currentRouteName()=="home"?"active":"";}}">Évenement</a>
+        <a href="{{route('onepage')}}" class="{{Route::currentRouteName()=="home"?"active":"";}}">Inscription</a>
+        <a href="{{route('onepage')}}" class="{{Route::currentRouteName()=="home"?"active":"";}}">Contact</a>
         </div>
         <div id="center">
             <a id="ouDonner" href="{{route('home')}}" class="{{Route::currentRouteName()=="home"?"active":"";}}">Où donner</a>

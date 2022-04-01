@@ -38,6 +38,9 @@ Route::post('admin/evenement/edit',[AdminController::class,'eventEdit'])->name("
 Route::get("admin/import",[AdminController::class, 'importCSV'])->name("import.csv");
 Route::post("admin/import/upload",[AdminController::class, 'importUpload'])->name("import.upload");
 
+Route::get("ou-donner",[FrontController::class, 'ouDonner'])->name("ouDonner");
+Route::post("ou-donner",[FrontController::class, 'inputCity'])->name("input.city");
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
