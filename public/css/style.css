@@ -2400,7 +2400,6 @@ p {
     .carousel-item .slider-image-box .slider-image {
       max-width: 680px;
       width: 100%; }
-
 .slider-content {
   position: relative;
   z-index: 9;
@@ -2576,7 +2575,8 @@ p {
     font-size: 14px;
     line-height: 20px;
     color: #121212;
-    margin-top: 16px; }
+    margin-top: 16px;
+    margin-bottom: 16px; }
   .single-features .features-content .features-btn {
     color: #04abd3;
     font-size: 16px;
@@ -2779,6 +2779,10 @@ p {
   padding-bottom: 130px;
   position: relative;
   background-color:#ddd;}
+  .marge-area {
+    padding-bottom: 60px;
+    position: relative;
+    background-color:#f4f6f7;}
   .about-area .about-title .sub-title {
     font-size: 18px;
     font-weight: 400;

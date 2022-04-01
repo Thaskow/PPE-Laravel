@@ -102,22 +102,22 @@
 
     <body>
 
-      
+
             @yield('content')
 
 
     <!--====== BACK TOP TOP PART START ======-->
 
 
-@if ($errors->any()) 
+@if ($errors->any())
 
 <div class="back-to-top" style="display: inline-block;width:auto;height:auto;padding:5px;background:red;opacity:65%">
         @foreach ($errors->all() as $error)
         <p style="color:white;">{{$error}}</p>
-        @endforeach 
+        @endforeach
 </div>
 
-@endif 
+@endif
 @if (Session::has('success'))
 <div class="back-to-top" style="display: inline-block;width:auto;height:auto;padding:5px;background:green;opacity:65%">
     <p style="color:white;">{{Session::get('success')}}</p>

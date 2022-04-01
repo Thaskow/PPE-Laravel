@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\FrontController;
 
 
 /*
@@ -16,7 +16,16 @@ use App\Http\Controllers\Controller;
 |
 */
 
-Route::get('/',[Controller::class,'onepage'])->name("onepage");
+//Routes non-admin
+
+Route::get('/',[FrontController::class,'onepage'])->name("onepage");
+
+Route::get("contact",[FrontController::class,'contact'])->name("contact");
+
+Route::get('evenement',[FonrtController::class, 'evenement'])->name("evenement");
+
+
+//Routes admin
 
 Route::get('administrateur',[AdminController::class,'administrateur'])->name("administrateur");
 Route::get('admin/contenus',[AdminController::class,'contenuIndex'])->name("contenu.index");

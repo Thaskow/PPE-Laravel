@@ -12,13 +12,8 @@ use Illuminate\Routing\Controller as BaseController;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
-    public function newtemplate() {
-        return view("newtemplate");
-    }
-    public function onepage() {
-        $contenuMoelle = Contenu::where('designation','=','OnePageMoelle')->get();
-        $contenuSang = Contenu::where('designation','OnePageSang')->get();
 
+<<<<<<< HEAD
         return view("onepage", compact('contenuMoelle','contenuSang'));
     }
     public function ouDonner() {
@@ -29,4 +24,6 @@ class Controller extends BaseController
         dd($request->city);
         return response()->json($json);
     }
+=======
+>>>>>>> 61096f154d14032252808990c329abecd1c53e16
 }
