@@ -5,13 +5,13 @@
     <meta charset="utf-8">
 
     <!--====== Title ======-->
-    <title>Smash - Bootstrap Business Template</title>
+    <title>Donnez du votre!</title>
 
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--====== Favicon Icon ======-->
-    <link rel="shortcut icon" href={{asset('images/favicon.png')}} type="image/png">
+    <link rel="shortcut icon" href={{asset('images/gouttetitle.png')}} type="image/png">
 
     <!--====== Magnific Popup CSS ======-->
     <link rel="stylesheet" href={{asset('css/magnific-popup.css')}}>
@@ -36,6 +36,7 @@
 
     <!--====== Drop CSS ======-->
     <link rel="stylesheet" href={{asset('css/drop.css')}}>
+    @yield('css')
 
 </head>
 
@@ -89,7 +90,7 @@
                             <ul class="navbar-nav m-auto">
                                 <li class="nav-item active"><a class="page-scroll" href="#dondesang">Don du sang</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#dondemoelle">Don de moelle</a></li>
-                                <li class="nav-item"><a class="page-scroll" href="#evenements">Evenements</a></li>
+                                <li class="nav-item"><a class="page-scroll" href={{ route('evenement') }}>Evenements</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#inscription">Inscription</a></li>
                                 <li class="nav-item"><a href="{{ route('contact') }}">Contact</a></li>
                             </ul>

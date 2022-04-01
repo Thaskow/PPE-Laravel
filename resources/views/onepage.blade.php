@@ -97,7 +97,7 @@
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample" style="">
                         <div class="bodycard">
                             <div class="containercard">
-                                @foreach ($cardSang as $object)
+                                @foreach ($cardMoelle as $object)
                                     <div class="card">
                                         <div class="face face1">
                                             <div class="cardcontenu">
