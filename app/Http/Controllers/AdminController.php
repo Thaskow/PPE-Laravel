@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Contenu;
 use App\Models\Image;
 use App\Models\Evenement;
+use App\Models\User;
 use ImageI;
 use Session;
 use Illuminate\Support\Facades\Validator;
@@ -43,7 +44,7 @@ class AdminController extends Controller
             $value = $value . '<div class="card-body">';
             $value = $value . '<p class="text">';
             foreach ($promo->users as $user) {
-                $value = $value . $user->name."<br>";
+                $value = $value . $user->prenom . " " . $user->name."<br>";
             }
             $value = $value . "</p></div></div></div>";
             $int += 1;
@@ -118,7 +119,6 @@ class AdminController extends Controller
             'lieuxE' => 'required',
             'dateR' => 'required',
             'lieuxR' => 'required'
-
         ]);
         if ($validator->fails()) {
             return back()->withErrors($validator)->withInput();
@@ -160,20 +160,42 @@ class AdminController extends Controller
             Liée l'user avec l'id de promo
         Fin
         */
-        $request->csv->storeAs('public\csv', $request->csv->getClientOriginalName());
-        $file = fopen(url('storage/csv/'.$request->csv->getClientOriginalName()),"r");
-        $lines = array();
-        while(! feof($file))
-          {
-            $a = array();
-            foreach (explode(';',fgetcsv($file)[0]) as $line) {
-                array_push($a,$line);
+        $validator = Validator::make($request->all(), [
+            'csv' => 'required',
+        ]);
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+        else {
+            $request->csv->storeAs('public\csv', $request->csv->getClientOriginalName());
+            $file = fopen(url('storage/csv/'.$request->csv->getClientOriginalName()),"r");
+            $lines = array();
+            while(! feof($file))
+            {
+                $a = array();
+                foreach (explode(';',fgetcsv($file)[0]) as $line) {
+                    array_push($a,$line);
+                }
+                array_push($lines, $a);
             }
-            array_push($lines, $a);
-          }
-        array_splice($lines, 0, 1);
-        fclose($file);
-        Session::flash("success","Fichier CSV correctement importé.");
-        return redirect()->back();
+            array_splice($lines, 0, 1);
+            fclose($file);
+            foreach ($lines as $line) {
+                $user = new User();
+                $user->name = $line[1];
+                $user->email = $line[4];
+                $user->prenom = $line[0];
+                $user->password = bcrypt("admin");
+                $user->save();
+                // vérifier la promotion si elle existe ou non
+                //      ajouter l'user à la promotion
+                // Sinon
+                //      ajouter la promotion
+                //      ajouter l'utilisateur
+                //      associer l'user à la promotion
+            }
+            Session::flash("success","Fichier CSV correctement importé.");
+            return redirect()->back();
+        }
     }
 }

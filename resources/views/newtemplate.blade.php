@@ -90,16 +90,25 @@
 
                         <div class="navbar-btn d-none d-sm-inline-block">
                             <ul>
-                                <li><a class="solid" href="#">Où donner?</a></li>
+                                <li><a class="solid" href="{{route("ouDonner")}}">Où donner?</a></li>
                             </ul>
                         </div>
                         <div class="collapse navbar-collapse sub-menu-bar" id="navbarTwo">
                             <ul class="navbar-nav m-auto">
+<<<<<<< HEAD
                                 <li class="nav-item active"><a class="page-scroll" href="#dondesang">Don du sang</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#dondemoelle">Don de moelle</a></li>
                                 <li class="nav-item"><a class="page-scroll" href={{ route('evenement') }}>Evenements</a></li>
                                 <li class="nav-item"><a class="page-scroll" href="#inscription">Inscription</a></li>
-                                <li class="nav-item"><a class="page-scroll" href="#contact">Contact</a></li>
+                                <li class="nav-item"><a href="{{ route('contact') }}">Contact</a></li>
+                                <li class="nav-item"><a href={{ route('contact') }}>Contact</a></li>
+=======
+                                <li class="nav-item {{Route::currentRouteName()=="onepage/#donDuSang"?"active":"";}}"><a class="page-scroll" href="{{route('onepage')}}#dondesang">Don du sang</a></li>
+                                <li class="nav-item {{Route::currentRouteName()=="onepage/#donDuSang"?"active":"";}}"><a class="page-scroll" href="{{route('onepage')}}#dondemoelle">Don de moelle</a></li>
+                                <li class="nav-item {{Route::currentRouteName()=="evenement"?"active":"";}}"><a class="page-scroll" href={{route('evenement')}}>Evenements</a></li>
+                                <li class="nav-item {{Route::currentRouteName()=="inscription"?"active":"";}}"><a class="page-scroll" href="{{route('inscription')}}">Inscription</a></li>
+                                <li class="nav-item {{Route::currentRouteName()=="contact"?"active":"";}}"><a href="{{ route('contact') }}">Contact</a></li>
+>>>>>>> e3602fc5984b4c209f046329008b559c2c01e3aa
                             </ul>
                         </div>
 
@@ -116,6 +125,25 @@
 
      <!--====== NAVBAR TWO PART ENDS ======-->
     @yield('content')
+
+    @if ($errors->any())
+
+    <div class="back-to-top" style="display: inline-block;width:auto;height:auto;padding:5px;background:red;opacity:65%">
+            @foreach ($errors->all() as $error)
+            <p style="color:white;">{{$error}}</p>
+            @endforeach
+    </div>
+
+    @endif
+    @if (Session::has('success'))
+    <div class="back-to-top" style="display: inline-block;width:auto;height:auto;padding:5px;background:green;opacity:65%">
+        <p style="color:white;">{{Session::get('success')}}</p>
+    </div>
+    @elseif (Session::has("error"))
+    <div class="back-to-top" style="display: inline-block;width:auto;height:auto;padding:5px;background:red;opacity:65%">
+        <p style="color:white;">{{Session::get('error')}}</p>
+    </div>
+    @endif
 
     <!--====== FOOTER PART START ======-->
 
@@ -187,6 +215,8 @@
 
     <!--====== Ajax Contact js ======-->
     <script src={{asset('js/ajax-contact.js')}}></script>
+    <link rel="stylesheet" href={{asset('css/LineIcons.css')}}>
+
 
     <!--====== Isotope js ======-->
     <script src={{asset('js/imagesloaded.pkgd.min.js')}}></script>
