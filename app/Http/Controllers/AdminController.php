@@ -15,8 +15,8 @@ class AdminController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
-        $this->middleware('is_admin');
+      /*  $this->middleware('auth');
+        $this->middleware('is_admin');*/
     }
     public function administrateur() {
         return view("administrateur.index");
@@ -147,13 +147,13 @@ class AdminController extends Controller
         return view("administrateur.import");
     }
     public function importUpload(Request $request) {
-        /* 
+        /*
         Rechercher la promotion de l'user
         Si elle existe
             Récupérer son ID
             Ajouter l'utilisateur
             Liée l'user avec l'id de promo
-        Si elle existe pas 
+        Si elle existe pas
             Crée la promotion
             Récupérer son id
             Ajouter l'utilisateur

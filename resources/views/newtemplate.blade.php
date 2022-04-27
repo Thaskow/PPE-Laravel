@@ -36,6 +36,13 @@
 
     <!--====== Drop CSS ======-->
     <link rel="stylesheet" href={{asset('css/drop.css')}}>
+
+    <!--====== Icofont CSS ======-->
+    <link rel="stylesheet" href={{asset('icofont/icofont.css')}}>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+
+
     @yield('css')
 
 </head>
@@ -191,6 +198,10 @@
 
     <!--====== Main js ======-->
     <script src={{asset('js/main.js')}}></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
+    <!--====== Carousel js ======-->
+    <script src={{asset('js/carousel.js')}}></script>
 </body>
 
 </html>

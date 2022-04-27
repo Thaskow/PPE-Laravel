@@ -13,6 +13,10 @@ class Evenement extends Model
     {
         return $this->hasMany(Image::class);
     }
+    public function commentaires()
+    {
+        return $this->hasMany(Commentaire::class);
+    }
     public function users()
     {
         return $this->belongsToMany(User::class)->withPivot(["user_id", "evenement_id","isDon","datePassage","isPrimoDonneur","isMoelle"]);

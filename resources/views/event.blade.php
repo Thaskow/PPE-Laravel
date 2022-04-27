@@ -103,20 +103,15 @@
                     @endif
                     @endforeach
                 </div>
-                <div class="col-12">
-                    <div class="testimonial-right-content mt-50">
-                        <div class="quota">
-                            <i class="lni lni-quotation"></i>
-                        </div>
-                        <div class="testimonial-content-wrapper testimonial-active slick-initialized slick-slider"><span class="prev slick-arrow" style="display: block;"><i class="lni lni-arrow-left"></i></span>
-                                <div class="testimonial-text">
-                                    <p class="text">“Praesent scelerisque, odio eu fermentum malesuada, nisi arcu volutpat nisl, sit amet convallis nunc turp.”</p>
-                                </div>
-                            </div>
-                        <span class="next slick-arrow" style="display: block;"></span></div> <!-- testimonial content wrapper -->
-                    </div> <!-- testimonial right content -->
+                <h4 style="text-align: center;width: 100%;margin: 30px;">Commentaires:</h4>
+                @foreach ($commentaire as $comm)
+                <div class="commentaire">
+                <p style="color: white;">{{ $comm->contenu }}</p>
                 </div>
-        </div>
+            @endforeach
+            </div>
+            </div>
+            </section>
         </section>
     </div>
 </div>

@@ -18,7 +18,7 @@ use App\Http\Controllers\Controller;
 //Routes non-admin
 Route::get('/',[Controller::class,'onepage'])->name("onepage");
 Route::get('evenement',[Controller::class, 'evenement'])->name("evenement");
-
+Route::get('evenement/{evenement}',[Controller::class, 'evenementShow'])->name("evenement.show");
 
 //Routes admin
 Route::get('administrateur',[AdminController::class,'administrateur'])->name("administrateur");
