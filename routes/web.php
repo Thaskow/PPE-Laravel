@@ -18,8 +18,8 @@ use App\Http\Controllers\FrontController;
 
 //Routes non-admin
 Route::get('/',[Controller::class,'onepage'])->name("onepage");
-Route::get('evenement',[Controller::class, 'evenement'])->name("evenement");
-Route::get('evenement/{evenement}',[Controller::class, 'evenementShow'])->name("evenement.show");
+Route::get('evenement',[FrontController::class, 'evenement'])->name("evenement");
+Route::get('evenement/{evenement}',[FrontController::class, 'evenementShow'])->name("evenement.show");
 
 Route::get('/',[FrontController::class,'onepage'])->name("onepage");
 
