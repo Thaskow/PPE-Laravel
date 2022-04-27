@@ -53,7 +53,7 @@ class CreateDatabase extends Migration
             $table->foreignId('evenement_id')->constrained();
             $table->primary(["evenement_id","user_id"]);
             $table->boolean('isDon');
-            $table->dateTime('datePassage');
+            $table->dateTime('datePassage')->nullable();
             $table->boolean('isPrimoDonneur')->nullable();
             $table->boolean('isMoelle')->nullable();
         });
