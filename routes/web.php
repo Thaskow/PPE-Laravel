@@ -20,9 +20,19 @@ use App\Http\Controllers\FrontController;
 
 Route::get('/',[FrontController::class,'onepage'])->name("onepage");
 
+Route::get('inscription',[FrontController::class,'inscription'])->name("inscription");
+
+Route::get('inscription/moelle',[FrontController::class,'inMoelle'])->name("inMoelle");
+Route::get('inscription/sang',[FrontController::class,'inSang'])->name("inSang");
+Route::get('uninscription/moelle',[FrontController::class,'unMoelle'])->name("unMoelle");
+Route::get('uninscription/sang',[FrontController::class,'unSang'])->name("unSang");
+
 Route::get("contact",[FrontController::class,'contact'])->name("contact");
 
+<<<<<<< HEAD
 Route::get('evenement',[FonrtController::class, 'evenement'])->name("evenement");
+=======
+>>>>>>> e3602fc5984b4c209f046329008b559c2c01e3aa
 Route::get('evenement',[FrontController::class, 'evenement'])->name("evenement");
 
 
@@ -38,6 +48,7 @@ Route::get("admin/photos",[AdminController::class, 'photoIndex'])->name("photo.i
 Route::post("admin/photo/upload",[AdminController::class, 'photoUpload'])->name("photo.upload");
 
 
+
 Route::get("admin/evenement/statistique",[AdminController::class, 'eventStat'])->name("event.stats");
 Route::get("admin/evenement/gestion",[AdminController::class, 'eventGest'])->name("event.gestion");
 Route::get("admin/evenement/creation",[AdminController::class, 'eventCrea'])->name("event.crea");
@@ -47,6 +58,8 @@ Route::post('admin/evenement/edit',[AdminController::class,'eventEdit'])->name("
 
 Route::get("admin/import",[AdminController::class, 'importCSV'])->name("import.csv");
 Route::post("admin/import/upload",[AdminController::class, 'importUpload'])->name("import.upload");
+
+Route::get("ou-donner",[FrontController::class, 'ouDonner'])->name("ouDonner");
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');

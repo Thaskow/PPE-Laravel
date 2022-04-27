@@ -35,7 +35,7 @@
                                     <h2 class="features-title">{{ $object->titre }}</h2>
                                 </div>
                                 <div class="features-content">
-                                    <p class="text">{{ $object->description }}</p>
+                                    <p class="text">{!! $object->description !!}</p>
                                     <a class="collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">En savoir plus ></a>
                                 </div>
                             </div>
@@ -88,7 +88,7 @@
                                     <h2 class="features-title">{{ $object->titre }}</h2>
                                 </div>
                                 <div class="features-content">
-                                    <p class="text">{{ $object->description }}</p>
+                                    <p class="text">{!! $object->description !!}</p>
                                     <a class="collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">En savoir plus ></a>
                                 </div>
                             </div>
