@@ -34,7 +34,6 @@ Route::get("contact",[FrontController::class,'contact'])->name("contact");
 
 Route::get('evenement',[FrontController::class, 'evenement'])->name("evenement");
 
->>>>>>> 68f38ae82d72c60f8e005338925849c03d2c95a2
 
 //Routes admin
 

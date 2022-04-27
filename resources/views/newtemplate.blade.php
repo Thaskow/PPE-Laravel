@@ -95,20 +95,11 @@
                         </div>
                         <div class="collapse navbar-collapse sub-menu-bar" id="navbarTwo">
                             <ul class="navbar-nav m-auto">
-<<<<<<< HEAD
-                                <li class="nav-item active"><a class="page-scroll" href="#dondesang">Don du sang</a></li>
-                                <li class="nav-item"><a class="page-scroll" href="#dondemoelle">Don de moelle</a></li>
-                                <li class="nav-item"><a class="page-scroll" href={{ route('evenement') }}>Evenements</a></li>
-                                <li class="nav-item"><a class="page-scroll" href="#inscription">Inscription</a></li>
-                                <li class="nav-item"><a href="{{ route('contact') }}">Contact</a></li>
-                                <li class="nav-item"><a href={{ route('contact') }}>Contact</a></li>
-=======
                                 <li class="nav-item {{Route::currentRouteName()=="onepage/#donDuSang"?"active":"";}}"><a class="page-scroll" href="{{route('onepage')}}#dondesang">Don du sang</a></li>
                                 <li class="nav-item {{Route::currentRouteName()=="onepage/#donDuSang"?"active":"";}}"><a class="page-scroll" href="{{route('onepage')}}#dondemoelle">Don de moelle</a></li>
                                 <li class="nav-item {{Route::currentRouteName()=="evenement"?"active":"";}}"><a class="page-scroll" href={{route('evenement')}}>Evenements</a></li>
                                 <li class="nav-item {{Route::currentRouteName()=="inscription"?"active":"";}}"><a class="page-scroll" href="{{route('inscription')}}">Inscription</a></li>
                                 <li class="nav-item {{Route::currentRouteName()=="contact"?"active":"";}}"><a href="{{ route('contact') }}">Contact</a></li>
->>>>>>> e3602fc5984b4c209f046329008b559c2c01e3aa
                             </ul>
                         </div>
 
