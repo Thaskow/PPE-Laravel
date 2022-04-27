@@ -10,9 +10,11 @@ use ImageI;
 use Session;
 use Illuminate\Support\Facades\Validator;
 
+use Carbon\Carbon;
 
 class FrontController extends Controller
 {
+
     public function newtemplate() {
         return view("newtemplate");
     }
@@ -21,8 +23,14 @@ class FrontController extends Controller
         $contenuSang = Contenu::where('designation','OnePageSang')->get();
         $cardSang = Contenu::where('designation','like','cardSang'.'%')->get();
         return view("onepage", compact('contenuMoelle','contenuSang','cardSang'));
+        $cardMoelle = Contenu::where('designation','like','cardMoelle'.'%')->get();
+        return view("onepage", compact('contenuMoelle','contenuSang','cardSang','cardMoelle'));
     }
     public function contact(){
         return view("contact");
+    }
+    public function evenement() {
+        $contenuEvent = Evenement::where('dateEvenement','<',Carbon::now())->orderBy("dateEvenement","desc")->first();
+        return view("evenement",compact('contenuEvent'));
     }
 }

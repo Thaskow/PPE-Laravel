@@ -23,6 +23,7 @@ Route::get('/',[FrontController::class,'onepage'])->name("onepage");
 Route::get("contact",[FrontController::class,'contact'])->name("contact");
 
 Route::get('evenement',[FonrtController::class, 'evenement'])->name("evenement");
+Route::get('evenement',[FrontController::class, 'evenement'])->name("evenement");
 
 
 //Routes admin
