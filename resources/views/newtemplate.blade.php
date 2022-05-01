@@ -105,7 +105,14 @@
 
                         <div class="navbar-btn d-none d-sm-inline-block">
                             <ul>
-                                <li><a class="solid" href="#">Se connecter</a></li>
+                                @if (Auth::check())
+                                <form action="{{route("logout")}}" method="POST">
+                                    @csrf
+                                    <li><button class="solid" type="submit">Se déconnecter</button></li>
+                                </form>
+                                @else
+                                    <li><a class="solid" href="{{Route('login')}}">Se connecter</a></li>
+                                @endif
                             </ul>
                         </div>
                     </nav> <!-- navbar -->

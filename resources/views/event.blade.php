@@ -111,13 +111,16 @@
             @endforeach
             <div class="container">
             <div class="row justify-content-center">
-            <form method="post" action="{{ route('createCommentaire', [$contenuEvent]) }}">
-                @csrf
-                <label for="commentaire">Nouveau commentaire :</label>
-                <br>
-                <input type="text" class="form-control" id="commentaire" name="contenu" placeholder="Commentaire"/>
-                <button type="submit" class="btn btn-primary">Envoyer</button>
-        </form>
+                @auth
+                <form method="post" action="{{ route('createCommentaire', [$contenuEvent]) }}">
+                    @csrf
+                    <label for="commentaire">Nouveau commentaire :</label>
+                    <br>
+                    <input type="text" class="form-control" id="commentaire" name="contenu" placeholder="Commentaire"/>
+                    <button type="submit" class="btn btn-primary">Envoyer</button>
+            </form>   
+                @endauth
+
 </div>
             </div>
         </div>

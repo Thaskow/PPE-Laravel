@@ -63,5 +63,5 @@ Route::post("admin/import/upload",[AdminController::class, 'importUpload'])->nam
 Route::get("ou-donner",[FrontController::class, 'ouDonner'])->name("ouDonner");
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+    return redirect()->route("onepage");
 })->name('dashboard');
