@@ -125,4 +125,12 @@ class FrontController extends Controller
           }])->first();
         return view("event",compact('contenuEvent','events','commentaire'));
     }
+    public function createCommentaire(Request $request, $contenuEvent)
+    {
+        $commentaire = new Commentaire();
+        $commentaire->contenu=$request->get("contenu");
+        $commentaire->evenement_id=$contenuEvent;
+        $commentaire->save();
+        return redirect()->back();
+    }
 }

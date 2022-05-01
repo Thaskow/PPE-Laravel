@@ -109,7 +109,18 @@
                 <p style="color: white;">{{ $comm->contenu }}</p>
                 </div>
             @endforeach
+            <div class="container">
+            <div class="row justify-content-center">
+            <form method="post" action="{{ route('createCommentaire', [$contenuEvent]) }}">
+                @csrf
+                <label for="commentaire">Nouveau commentaire :</label>
+                <br>
+                <input type="text" class="form-control" id="commentaire" name="contenu" placeholder="Commentaire"/>
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+        </form>
+</div>
             </div>
+        </div>
             </div>
             </section>
         </section>

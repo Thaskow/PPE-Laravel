@@ -34,6 +34,8 @@ Route::get("contact",[FrontController::class,'contact'])->name("contact");
 
 Route::get('evenement',[FrontController::class, 'evenement'])->name("evenement");
 
+Route::post('createCommentaire/{contenuEvent}',[FrontController::class, 'createCommentaire'])->name('createCommentaire');
+
 
 //Routes admin
 
