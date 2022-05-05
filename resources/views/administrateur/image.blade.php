@@ -80,27 +80,27 @@ img {
                                 </div> <!-- form input -->
                             </div>
 
-                            <div class="containerfile col-md-6">
+                            <!--<div class="containerfile col-md-6">
                                 <div class="form-input mt-25">
                                     <label>Image</label>
                                   <div class="file-upload-wrapper" data-text="Selectionnez une image">
                                     <input name="photo" type="file" class="file-upload-field inputfile" >
                                   </div>
                                 </div>
-                            </div>
+                            </div>-->
 
 
 
 
 
-                            <!--
+                        <!--
                             <div class="col-md-6">
                                 <div class="form-input mt-25">
                                     <label>Image</label>
                                     <input type="file" name="photo">
                                 </div>
                             </div>
-
+                        -->
 
 
                              <div class="col-md-6">
@@ -111,7 +111,7 @@ img {
                                         <input class="buttonfile" id="image buttonfilehover" type="file" name="photo"/>
                                     </div>
                                 </div>
-                            </div> -->
+                            </div> 
 
 
                             <div class="col-md-12">
