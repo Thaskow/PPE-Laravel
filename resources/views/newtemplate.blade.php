@@ -106,9 +106,11 @@
                         <div class="navbar-btn d-none d-sm-inline-block">
                             <ul>
                                 @if (Auth::check())
-                                <form action="{{route("logout")}}" method="POST">
+                                <form action="{{route("logout")}}" method="POST" id="formdeco">
                                     @csrf
-                                    <li><button class="solid" type="submit">Se déconnecter</button></li>
+                                    <li>
+                                        <a class="solid" id="deco" href="#">Se déconnecter</a>
+                                    </li>
                                 </form>
                                 @else
                                     <li><a class="solid" href="{{Route('login')}}">Se connecter</a></li>
@@ -230,6 +232,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
     <!--====== Carousel js ======-->
     <script src={{asset('js/carousel.js')}}></script>
+    <script>
+
+        $(document).ready(function()
+{
+            $("#deco").click(function(e){
+                e.preventDefault();
+                $("#formdeco").submit();
+            });
+
+       });
+    </script>
 </body>
 
 </html>
